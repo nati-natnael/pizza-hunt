@@ -30,6 +30,10 @@ const PizzaSchema = new Schema({
   id: false
 })
 
+PizzaSchema.virtual('commentCount').get(() => {
+  return this.comments.length
+})
+
 const Pizza = model('Pizza', PizzaSchema)
 
 module.exports = Pizza
